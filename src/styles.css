@@ -1,17 +1,95 @@
 body {
+  background: #016ea0;
   font-family: sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
 }
+
+.nav--bar {
+  position: absolute;
+  display: flex;
+  align-content: space-between;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.logo {
+  margin-left: 60px;
+  width: 126px;
+}
+
+.section {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+}
+
+.section--one--container {
+  width: 360px;
+  margin-left: 15%;
+}
+
+.first h1 {
+  font-size: 8rem;
+  line-height: 8rem;
+  letter-spacing: -0.3rem;
+  width: 50%;
+  margin: 0 0 30px -10px;
+}
+
+.button--hero {
+  background: #f2ce6e;
+  color: black;
+  border: none;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 15px 30px;
+  margin-top: 24px;
+  margin-right: 40px;
+  font-size: 0.6rem;
+  cursor: pointer;
+  transition: all 0.8s ease;
+}
+.button--hero:hover {
+  background: black;
+  color: white;
+}
+
+.button--navbar {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  height: 35px;
+  padding: 10px 30px;
+  margin-right: 60px;
+  font-size: 0.6rem;
+}
+
+.second {
+  justify-content: flex-end;
+  position: relative;
+}
+
+.section--two--container {
+  width: 360px;
+  margin-right: 10%;
+  z-index: 1;
+}
+
 #webgi-canvas {
   width: 100%;
   height: 100%;
-  border-radius: 0.5rem;
+  position: fixed;
+  top: 0;
 }
-#webgi-canvas-container{
-  width: 80vw;
-  height: 80vh;
-  margin: 10vh 10vw;
-  border-radius: 0.5rem;
-
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+#webgi-canvas-container {
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  position: fixed;
 }
