@@ -64,7 +64,7 @@ async function setupViewer() {
   // This must be called once after all plugins are added.
   viewer.renderer.refreshPipeline();
 
-  await manager.addFromPath('./assets/drone.glb');
+  await manager.addFromPath('./assets/drone-draco.glb');
 
   viewer.getPlugin(TonemapPlugin)!.config!.clipBackground = true;
 
