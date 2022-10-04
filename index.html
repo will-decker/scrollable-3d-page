@@ -36,8 +36,15 @@
           bits
         </p>
       </div>
-      <div class="custom--bg"></div>
     </section>
+
+    <div class="custom--bg"></div>
+    <svg width="0" height="0">
+      <filter id="filter">
+        <feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="8" />
+        <feDisplacementMap in="SourceGraphic" scale="400" />
+      </filter>
+    </svg>
 
     <section class="section third">
       <div class="section--third--container">

@@ -29,7 +29,7 @@ body {
 }
 
 .section--one--container {
-  width: 360px;
+  width: 425px;
   margin-left: 15%;
 }
 
@@ -76,13 +76,13 @@ body {
 }
 
 .section--two--container {
-  width: 360px;
+  width: 425px;
   margin-right: 10%;
-  z-index: 1;
+  z-index: 0;
 }
 
 .section--third--container {
-  width: 360px;
+  width: 425px;
   margin-left: 10%;
   z-index: 1;
 }
@@ -94,16 +94,20 @@ h2 {
 }
 
 .custom--bg {
-  width: 100%;
+  width: 140%;
   height: 800px;
-  background: #f2ce6e;
+  border-radius: 50%;
+  filter: url(#filter);
+  box-shadow: 1400px 2100px 130px 0px #fff;
+  background: #000;
   -webkit-transform: skew(20deg);
   -moz-transform: skew(20deg);
   -o-transform: skew(20deg);
   transform: skew(20deg) rotate(21deg);
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1300px;
+  left: -1230px;
+  z-index: -1;
 }
 
 footer {

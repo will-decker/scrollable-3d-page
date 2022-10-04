@@ -27,7 +27,7 @@ async function setupViewer() {
   // Initialize the viewer
   const viewer = new ViewerApp({
     canvas: document.getElementById('webgi-canvas') as HTMLCanvasElement,
-    isAntialiased: true,
+    // isAntialiased: true,
     // useRgbm: false,
   });
 
@@ -58,7 +58,7 @@ async function setupViewer() {
   // This must be called once after all plugins are added.
   viewer.renderer.refreshPipeline();
 
-  await manager.addFromPath('./assets/drone2-draco.glb');
+  await manager.addFromPath('./assets/drone-anim.glb');
 
   function setupScrollAnim() {
     const tl = gsap.timeline();
@@ -68,27 +68,53 @@ async function setupViewer() {
       x: -0.68,
       y: 0.12,
       z: 1.93,
-      duration: 4,
       scrollTrigger: {
         trigger: '.second',
         start: 'top bottom',
         end: 'top top',
         scrub: true,
+        immediateRender: false,
       },
       onUpdate,
-    }).to(target, {
-      x: 0.005,
-      y: 0.11,
-      z: 1.09,
-      duration: 4,
-      scrollTrigger: {
-        trigger: '.second',
-        start: 'top bottom',
-        end: 'top top',
-        scrub: true,
-      },
-      onUpdate,
-    });
+    })
+      .to(target, {
+        x: 0.005,
+        y: 0.11,
+        z: 1.09,
+        scrollTrigger: {
+          trigger: '.second',
+          start: 'top bottom',
+          end: 'top top',
+          scrub: true,
+          immediateRender: false,
+        },
+      })
+
+      .to(position, {
+        x: 0.84,
+        y: -2.92,
+        z: 2.68,
+        scrollTrigger: {
+          trigger: '.third',
+          start: 'top bottom',
+          end: 'top top',
+          scrub: true,
+          immediateRender: false,
+        },
+        onUpdate,
+      })
+      .to(target, {
+        x: -0.6,
+        y: -0.316,
+        z: 1.023,
+        scrollTrigger: {
+          trigger: '.third',
+          start: 'top bottom',
+          end: 'top top',
+          scrub: true,
+          immediateRender: false,
+        },
+      });
   }
 
   setupScrollAnim();
@@ -98,13 +124,15 @@ async function setupViewer() {
 
   function onUpdate() {
     needsUpdate = true;
-    viewer.renderer.resetShadows();
+    // viewer.renderer.resetShadows();
+    viewer.setDirty();
   }
 
   viewer.addEventListener('preFrame', () => {
     if (needsUpdate) {
-      camera.positionUpdated(false);
-      camera.targetUpdated(true);
+      //   camera.positionUpdated(true);
+      //   camera.targetUpdated(true);
+      camera.positionTargetUpdated(true);
       needsUpdate = false;
     }
   });
